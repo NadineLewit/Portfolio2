@@ -11,6 +11,9 @@ const useStyles = makeStyles({
     background: "#222",
     height: "55px",
     overflow: "hidden",
+    position: "fixed",
+    bottom: 0, 
+    width: "100%",
   },
   root: {
     "& .MuiSvgIcon-root": {

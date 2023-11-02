@@ -13,14 +13,13 @@ import Avatar from "@material-ui/core/Avatar";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import ArrowBack from "@material-ui/icons/ArrowBack";
-import AssignmentInd from "@material-ui/icons/AssignmentInd";
 import Home from "@material-ui/icons/Home";
 import Apps from "@material-ui/icons/Apps";
 import ContactMail from "@material-ui/icons/ContactMail";
 import { makeStyles } from "@material-ui/core/styles";
-import avatar from "../avatar.png";
-
-import Footer from "../components/Footer";
+import avatar from "../fotoMia.jpg";
+import star from "../estrella.png";
+import rayas from "../rayas.png";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
@@ -41,29 +40,50 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     display: "block",
     margin: "0.5rem auto",
-    width: theme.spacing(13),
-    height: theme.spacing(13),
+    // width: theme.spacing(13),
+    // height: theme.spacing(13),
   },
   listItem: {
     color: "tan",
   },
+  
 }));
 
 const menuItems = [
-  { listIcon: <Home />, listText: "Home", listPath: "/" },
-  { listIcon: <AssignmentInd />, listText: "Resume", listPath: "/resume" },
+  { listIcon: <Home />, listText: "Inicio", listPath: "/" },
+  {listIcon: (
+    <div style={{ display: 'flex', alignItems: 'center' }} >
+      <img src={star} style={{ width: '22px', marginRight: '-900px'}} alt="a" />
+      {/* <span style={{ marginLeft: '20px' }} ></span> */}
+    </div>
+  ),
+  listText: "Favoritos",
+  listPath: "/favs"
+  },
   { listIcon: <Apps />, listText: "Portfolio", listPath: "/portfolio" },
-  { listIcon: <ContactMail />, listText: "Contact", listPath: "/contact" },
+  { listIcon: <ContactMail />, listText: "Contactame", listPath: "/contact" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
+  const handleOpen = () => {
+    document.getElementsByTagName('html')[0].style.overflow = 'hidden';
+    setOpen(true);
+  };
+
+  // Cuando cierras el menú lateral
+  const handleClose = () => {
+    document.getElementsByTagName('html')[0].style.overflow = 'auto';
+    setOpen(false);
+  };
+
+
   const classes = useStyles();
 
   const sideList = () => (
     <Box className={classes.menuSliderContainer} component="div">
-      <Avatar className={classes.avatar} src={avatar} alt="Mahmudul Alam" />
+      <Avatar className={classes.avatar} src={avatar} alt="Nadine Lewit" sx={{ width: 99, height: 99 }}/>
       <Divider />
       <List>
         {menuItems.map((item, i) => (
@@ -71,7 +91,9 @@ const Navbar = () => {
             button
             key={i}
             className={classes.listItem}
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              handleClose();
+            }}
             component={Link}
             to={item.listPath}
           >
@@ -90,18 +112,18 @@ const Navbar = () => {
       <Box component="nav">
         <AppBar position="static" className={classes.appbar}>
           <Toolbar>
-            <IconButton onClick={() => setOpen(true)}>
-              <ArrowBack className={classes.arrow} />
-            </IconButton>
-            <Typography variant="h5" className={classes.title}>
-              Portfolio
+            <IconButton onClick={() => { handleOpen(); }}>
+              <img src={rayas} style={{ width: 27, height: 27 }} />
+              <Typography variant="h5" className={classes.title} style={{marginLeft: '18px'}}>
+              Menu
             </Typography>
+            </IconButton>
+            
           </Toolbar>
         </AppBar>
       </Box>
-      <Drawer open={open} anchor="right" onClose={() => setOpen(false)}>
+      <Drawer open={open} anchor="right" onClick={() => { handleClose(); }}>
         {sideList()}
-        <Footer />
       </Drawer>
     </React.Fragment>
   );
