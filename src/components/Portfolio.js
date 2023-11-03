@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
@@ -26,65 +26,92 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 345,
     margin: "3rem auto",
   },
+  root: {
+    "& .MuiSvgIcon-root": {
+      fill: "tan",
+      "&:hover": {
+        fill: "tomato",
+        fontSize: "1.8rem",
+      },
+    },
+  },
 }));
+
+
 
 const projects = [
   {
-    name: "Project 1",
-    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis
-    consequatur magni quod nesciunt necessitatibus molestiae non
-    eligendi, magnam est aliquam recusandae? Magnam soluta minus
-    iste alias sunt veritatis nisi dolores!`,
+    name: "Catalogo de productos",
+    description: `Un catalogo de productos variados hecho con React con diferentes funciones.`,
     image: project1,
+    url: "https://github.com/NadineLewit/TP_Productos.git",
   },
   {
-    name: "Project 2",
-    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
-    consequatur magni quod nesciunt necessitatibus molestiae non\
-    eligendi, magnam est aliquam recusandae? Magnam soluta minus\
-    iste alias sunt veritatis nisi dolores!`,
+    name: "Trabajo de hardware",
+    description: `Un trabajo centrado en 4 funcionalidades de hardware en React.`,
     image: project2,
+    url: "https://github.com/NadineLewit/TP_Hardware.git",
   },
   {
-    name: "Project 3",
-    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
-    consequatur magni quod nesciunt necessitatibus molestiae non\
-    eligendi, magnam est aliquam recusandae? Magnam soluta minus\
-    iste alias sunt veritatis nisi dolores!`,
+    name: "Turnos de clinica",
+    description: `Una pagina web completa y funcional basada en la facilitacion de la gestion de turnos y su administracion, tanto desde la perspectiva del paciente, como la del administrador.`,
     image: project3,
+    url: "https://github.com/JulianaPansowyFurno/PF.git",
   },
   {
-    name: "Project 4",
-    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
-    consequatur magni quod nesciunt necessitatibus molestiae non\
-    eligendi, magnam est aliquam recusandae? Magnam soluta minus\
-    iste alias sunt veritatis nisi dolores!`,
+    name: "Catalogo de platos de comida",
+    description: `Un catalogo de diferentes platos de comida con un respectivo menu en el que podras agregar y quitar los platos de tu preferencia.`,
     image: project4,
+    url: "https://github.com/JulianaPansowyFurno/TPComidas.git",
   },
   {
-    name: "Project 5",
-    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
-    consequatur magni quod nesciunt necessitatibus molestiae non\
-    eligendi, magnam est aliquam recusandae? Magnam soluta minus\
-    iste alias sunt veritatis nisi dolores!`,
+    name: "Trabajo con Context State",
+    description: `Una demostracion del uso de Context State llevado a la practica.`,
     image: project5,
+    url: "https://github.com/JulianaPansowyFurno/tp07_Context.git",
   },
   {
-    name: "Project 6",
-    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
-    consequatur magni quod nesciunt necessitatibus molestiae non\
-    eligendi, magnam est aliquam recusandae? Magnam soluta minus\
-    iste alias sunt veritatis nisi dolores!`,
+    name: "Directorio de personas",
+    description: `Un listado de personas con ciertos datos suyos, realizado con React Router.`,
     image: project6,
+    url: "https://github.com/JulianaPansowyFurno/TP07_Directorio_de_personas.git",
+  },
+  {
+    name: "Peliculas de disney",
+    description: `Una API que explora el mundo de Disney, la cual permite conocer y modificar los personajes que lo componen y entender en qué películas estos participaron.`,
+    image: project6,
+    url: "https://github.com/JulianaPansowyFurno/TPPeliculas.git",
+  },
+  {
+    name: "Banderas del mundo",
+    description: `Utilizando una API de banderas, este trabajo te da el desafio de adivinar la que te muestra, cada vez que adivine, suma 10 puntos y cada vez que no adivine, reste 1 punto.`,
+    image: project6,
+    url: "https://github.com/JulianaPansowyFurno/TP6_Banderas.git",
+  },
+  {
+    name: "Gestor de citas",
+    description: `Este trabajo simula la accion de sacarle un turno a tu mascota a traves de una pagina web.`,
+    image: project6,
+    url: "https://github.com/JulianaPansowyFurno/TP4_GestordeCitas.git",
   },
 ];
 
 const Portfolio = () => {
   const classes = useStyles();
+  const storedItems = JSON.parse(localStorage.getItem('favoritos')) || [];
+  const [favs, setFavs] = useState(storedItems)
+
+
+
+  useEffect(() => {
+    localStorage.setItem('favoritos', JSON.stringify(favs))
+  }, [])
+
+
   return (
+    <>
     <Box component="div" className={classes.mainContainer}>
       <Grid container justify="center">
-        {/* Projects */}
         {projects.map((project, i) => (
           <Grid item xs={12} sm={8} md={4} key={i}>
             <Card className={classes.cardContainer}>
@@ -111,12 +138,33 @@ const Portfolio = () => {
                 <Button size="small" color="primary">
                   Live Demo
                 </Button>
+                <Button size="small" color="primary" style={{ marginLeft: 'auto' }} onClick={() => {
+                    if (!favs.some(unFav => unFav.url === project.url)) {
+                      setFavs([...favs, project]);
+                      localStorage.setItem('favoritos', JSON.stringify([...favs, project]));
+                    } else {
+                      alert('Ya agregaste este proyecto a favoritos');
+                    }
+                  }}>
+                  Favs
+                  <img  className={classes.root}>
+                    
+                  </img>
+                </Button>
+                <Button size="small" color="primary" style={{ marginLeft: 'auto' }} onClick={() => setFavs(favs.filter(unFav => unFav !== unFav))}>
+                  sacar favs
+                  <img  className={classes.root}>
+                    
+                  </img>
+                </Button>
+                
               </CardActions>
             </Card>
           </Grid>
         ))}
       </Grid>
     </Box>
+    </>
   );
 };
 
