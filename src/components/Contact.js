@@ -1,4 +1,4 @@
-import React, {Component, useRef} from "react";
+import React, {Component, useEffect} from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
 import Send from "@material-ui/icons/Send";
-import emailjs from '@emailjs/browser';
+import emailjs from 'emailjs-com';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -62,60 +62,50 @@ const InputField = withStyles({
     },
   },
 })(TextField);
-const form = useRef();
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs.sendForm("service_bj4tfom", "template_6zog7pm", form.current, "6PfT7_ZLzhUzn1djW")
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
-  };
 
 const Contact = () => {
   const classes = useStyles();
-  
+
+    const emailjs = require('emailjs-com');
+
+    emailjs.init("6PfT7_ZLzhUzn1djW");
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+
+      const contactNumber = Math.random() * 100000 | 0;
+      const form = event.target;
+
+      emailjs.sendForm('service_bj4tfom', 'template_6zog7pm', form)
+        .then((response) => {
+          console.log('SUCCESS!', response);
+        }, (error) => {
+          console.log('FAILED...', error);
+        });
+    };
+
+    const handleInputChange = (event) => {
+      // Handle form input changes here if needed
+    };
+
+
   return (
     <>
-<div> 
-  <h1>Contact Form</h1> 
-  <form className='cf'>
-    <div className='half left cf'>
-      <input type='text' placeholder='Name' name='user_name' />
-      <input type='email' placeholder='Email address' name='user_email' />
-    </div>
-    <div className='half right cf'> 
-      <textarea name='message' type='text' placeholder='Message'></textarea>
-    </div> <input type='submit' value='Submit' id='input-submit' /> 
-</form>
-<form ref={form} onSubmit={sendEmail}>
-      <label>Name</label>
-      <input type="text" name="user_name" />
-      <label>Email</label>
-      <input type="email" name="user_email" />
-      <label>Message</label>
-      <textarea name="message" />
-      <input type="submit" value="Send" />
-    </form>
-</div>
-
-
-
-
     <Box component="div" className={classes.contactContainer}>
       <Grid container justify="center">
         <Box component="form" className={classes.form}>
           <Typography variant="h5" className={classes.heading}>
             Contactame...
           </Typography>
+          <form onSubmit={handleSubmit}>
+
           <InputField
             fullWidth={true}
             label="Nombre"
             variant="outlined"
             inputProps={{ className: classes.input }}
+            name="user_name"
+            onChange={handleInputChange}
           />
           <InputField
             fullWidth={true}
@@ -123,6 +113,8 @@ const Contact = () => {
             variant="outlined"
             inputProps={{ className: classes.input }}
             className={classes.field}
+            onChange={handleInputChange}
+            name="user_email"
           />
           <InputField
             fullWidth={true}
@@ -131,15 +123,21 @@ const Contact = () => {
             multiline
             rows={4}
             inputProps={{ className: classes.input }}
+            onChange={handleInputChange}
+            name="message"
           />
           <Button
+            type="submit"
             variant="outlined"
             fullWidth={true}
             endIcon={<Send />}
             className={classes.button}
+            value="Send"
           >
             Contactame
           </Button>
+          </form>
+
         </Box>
       </Grid>
     </Box>
