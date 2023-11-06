@@ -39,10 +39,45 @@ const Portfolio = () => {
 
 
   return (
+    // <Box component="div" className={classes.mainContainer}>
+    //   <Grid container justify="center">
+    //     {/* Projects */}
+    //     {console.log(favs)}
+    //     {favs.map((project, i) => (
+    //       <Grid item xs={12} sm={8} md={4} key={i}>
+    //         <Card className={classes.cardContainer}>
+    //           <CardActionArea>
+    //             <CardMedia
+    //               component="img"
+    //               alt="Project 1"
+    //               height="140"
+    //               image={project.image}
+    //             />
+    //             {console.log(project.name)}
+    //             <CardContent>
+    //               <Typography variant="h5" gutterBottom>
+    //                 {project.name}
+    //               </Typography>
+    //               <Typography variant="body2" color="textSecondary">
+    //                 {project.description}
+    //               </Typography>
+    //             </CardContent>
+    //           </CardActionArea>
+    //           <CardActions>
+    //             <Button size="small" color="primary">
+    //               Share
+    //             </Button>
+    //             <Button size="small" color="primary">
+    //               Live Demo
+    //             </Button>
+    //           </CardActions>
+    //         </Card>
+    //       </Grid>
+    //     ))}
+    //   </Grid>
+    // </Box>
     <Box component="div" className={classes.mainContainer}>
       <Grid container justify="center">
-        {/* Projects */}
-        {console.log(favs)}
         {favs.map((project, i) => (
           <Grid item xs={12} sm={8} md={4} key={i}>
             <Card className={classes.cardContainer}>
@@ -69,6 +104,7 @@ const Portfolio = () => {
                 <Button size="small" color="primary">
                   Live Demo
                 </Button>
+                
               </CardActions>
             </Card>
           </Grid>
