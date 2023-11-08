@@ -18,6 +18,12 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: "tomato",
   },
+  heading: {
+    color: "tomato",
+    textAlign: "center",
+    textTransform: "uppercase",
+    marginBottom: "1rem",
+  },
   subtitle: {
     color: "tan",
     textTransform: "uppercase",
@@ -29,11 +35,12 @@ const useStyles = makeStyles((theme) => ({
     transform: "translate(-50%,-50%)",
     width: "100vw",
     textAlign: "center",
+    alignContent: "center",
     zIndex: 1,
   },
   detalleContainer: {
     background: "#233",
-    width: "100%",
+    width: "1000px",
     heigth: "100%",
   },
 }));
@@ -43,29 +50,25 @@ const Detalle = () => {
   const { id } = useParams();
 
   return (
-    <Box className={classes.typedContainer}>
-        <div className={classes.detalleContainer}>
-      <Grid container justify="center">
-        <Avatar className={classes.avatar} src={avatar} alt="Nadine Lewit"/>
-      </Grid>
+
+    // <Box>
+    <center>
+
+                  <div className={classes.detalleContainer}>
+
       <Typography className={classes.title} variant="h4">
-        <Typed strings={["Nadine Lewit"]} typeSpeed={40} />
+        {/* <Typed strings={id.name} typeSpeed={40} /> */}
       </Typography>
 
-      <Typography className={classes.subtitle} variant="h5">
-        <Typed
-          strings={[
-            "Desarrolladora de Frontend",
-            "Desarrolladora en React",
-            "Desarrolladora de Backend",
-          ]}
-          typeSpeed={40}
-          backSpeed={50}
-          loop
-        />
-      </Typography>
+      <Typography variant="h5" className={classes.heading}>
+            Contactame...
+          </Typography>
       </div>
-    </Box>
+
+      </center>
+
+    // </Box>
+
   );
 };
 
