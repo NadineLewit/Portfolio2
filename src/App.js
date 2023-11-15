@@ -9,11 +9,13 @@ import Contact from "./components/Contact";
 import Detalle from "./components/Detalle";
 import Footer from "./components/Footer";
 import "./App.css";
+import {ContextProvider} from "./MyContext";
 
 function App() {
   return (
-  
     <React.Fragment>
+          <ContextProvider>
+
       <CssBaseline />
       <Navbar />
       <Switch>
@@ -24,7 +26,10 @@ function App() {
         <Route exact path="/detalle/:id" component={Detalle} />
       </Switch>
       <Footer/>
+      </ContextProvider>
+
     </React.Fragment>
+
   );
 }
 

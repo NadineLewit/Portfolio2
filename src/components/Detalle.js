@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
@@ -7,7 +7,7 @@ import Typed from "react-typed";
 import { makeStyles } from "@material-ui/core/styles";
 import avatar from "../fotoMia.jpg";
 import { useParams } from "react-router-dom";
-
+import { useProyectos } from "../MyContext";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   detalleContainer: {
     background: "#233",
-    width: "1000px",
+    width: "70%",
     heigth: "100%",
   },
 }));
@@ -48,14 +48,26 @@ const useStyles = makeStyles((theme) => ({
 const Detalle = () => {
   const classes = useStyles();
   const { id } = useParams();
+  const { projects } = useProyectos();
+  const [proyecto, setProyecto] = useState([]);
+
+  console.log(projects)
+  // setProyecto(pro.filter((p) => p.id === id))
+  
+
 
   return (
 
     // <Box>
     <center>
+      {projects.map((item) => {
+    // if(item.id === id){
+    //   setProyecto(item)  
+      console.log(item)
 
-                  <div className={classes.detalleContainer}>
-
+    }
+  )}
+      <div className={classes.detalleContainer}>
       <Typography className={classes.title} variant="h4">
         {/* <Typed strings={id.name} typeSpeed={40} /> */}
       </Typography>
