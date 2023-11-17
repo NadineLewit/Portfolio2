@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import avatar from "../fotoMia.jpg";
 import { useParams } from "react-router-dom";
 import { useProyectos } from "../MyContext";
+import "../clases.css"
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -43,6 +44,15 @@ const useStyles = makeStyles((theme) => ({
     width: "70%",
     heigth: "100%",
   },
+  descContainer: {
+     padding: theme.spacing(20),
+    // paddingBlock: "2% 2%",
+  },
+  descripcion: {
+    color: "#fff",
+    textAlign: "center",
+    fontSize: theme.typography.h6.fontSize,
+  },
 }));
 
 const Detalle = () => {
@@ -51,36 +61,35 @@ const Detalle = () => {
   const { projects } = useProyectos();
   const [proyecto, setProyecto] = useState([]);
 
-  console.log(projects)
-  // setProyecto(pro.filter((p) => p.id === id))
-  
+  useEffect(() => {
+    const elProyecto = projects.find((item) => item.id == id);
+    setProyecto(elProyecto);
+  }, [id, projects]);
 
 
   return (
-
-    // <Box>
-    <center>
-      {projects.map((item) => {
-    // if(item.id === id){
-    //   setProyecto(item)  
-      console.log(item)
-
-    }
-  )}
-      <div className={classes.detalleContainer}>
-      <Typography className={classes.title} variant="h4">
-        {/* <Typed strings={id.name} typeSpeed={40} /> */}
-      </Typography>
-
-      <Typography variant="h5" className={classes.heading}>
-            Contactame...
+    <>
+      <center>
+        <div className={classes.detalleContainer}>
+          <Typography className={classes.title} variant="h4">
+            {proyecto && proyecto.name && (
+              <Typed strings={[proyecto.name]} typeSpeed={40} />
+            )}      
           </Typography>
-      </div>
-
+          <img className="imgDetalle" src={proyecto.image2}></img>
+          <div className={classes.descContainer}>
+          <Typography className={classes.descripcion} variant="h6">
+          {proyecto && proyecto.description && (
+            proyecto.description
+            )}    
+          </Typography>
+          </div>
+          {/* <Typography variant="h5" className={classes.heading}>
+              Contactame...
+          </Typography> */}
+        </div>
       </center>
-
-    // </Box>
-
+    </>
   );
 };
 

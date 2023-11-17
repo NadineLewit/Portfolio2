@@ -3,3 +3,13 @@
     height: "1px";
     color: #d2b48c;
 }
+.imgDetalle {
+    margin-left: -35%;
+    width: 7%;
+}
+.descDetalle {
+    margin-left: 70%;
+    margin-right: 70%;
+    color: "#fff",
+
+}
