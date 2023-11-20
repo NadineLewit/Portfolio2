@@ -29,11 +29,21 @@ const useStyles = makeStyles({
 const Footer = () => {
   const classes = useStyles();
 
+  const handleButtonClickFB = () => {
+    window.open("https://www.facebook.com/profile.php?id=100011436930733&locale=es_LA", "_blank");
+};
+const handleButtonClickIG = () => {
+  window.open("https://www.instagram.com/nadulewit/", "_blank");
+};
+const handleButtonClickTwitter = () => {
+  window.open("https://twitter.com/nadulewit", "_blank");
+};
+
   return (
     <BottomNavigation className={classes.bottomNavContainer}>
-      <BottomNavigationAction icon={<Facebook />} className={classes.root} />
-      <BottomNavigationAction icon={<Twitter />} className={classes.root} />
-      <BottomNavigationAction icon={<Instagram />} className={classes.root} />
+      <BottomNavigationAction icon={<Facebook />} className={classes.root} onClick={handleButtonClickFB}/>
+      <BottomNavigationAction icon={<Twitter />} className={classes.root} onClick={handleButtonClickTwitter}/>
+      <BottomNavigationAction icon={<Instagram />} className={classes.root} onClick={handleButtonClickIG}/>
     </BottomNavigation>
   );
 };

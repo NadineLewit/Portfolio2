@@ -17,9 +17,10 @@ import Home from "@material-ui/icons/Home";
 import Apps from "@material-ui/icons/Apps";
 import ContactMail from "@material-ui/icons/ContactMail";
 import { makeStyles } from "@material-ui/core/styles";
-import avatar from "../fotoMia.jpg";
+import avatar from "../images/fotoMia1.jpg";
 import star from "../estrella.png";
 import rayas from "../rayas.png";
+import personita from "../images/avatarIcon.png"
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
@@ -54,14 +55,21 @@ const menuItems = [
   {listIcon: (
     <div style={{ display: 'flex', alignItems: 'center' }} >
       <img src={star} style={{ width: '22px', marginRight: '-900px'}} alt="a" />
-      {/* <span style={{ marginLeft: '20px' }} ></span> */}
     </div>
   ),
   listText: "Favoritos",
   listPath: "/favs"
   },
+  {listIcon: (
+    <div style={{ display: 'flex', alignItems: 'center' }} >
+      <img src={personita} style={{ width: '22px', marginRight: '-900px'}} alt="a" />
+    </div>
+  ),
+  listText: "Sobre mí",
+  listPath: "/info"
+  },
   { listIcon: <Apps />, listText: "Portfolio", listPath: "/portfolio" },
-  { listIcon: <ContactMail />, listText: "Contactame", listPath: "/contact" },
+  { listIcon: <ContactMail />, listText: "Contáctame", listPath: "/contact" },
 ];
 
 const Navbar = () => {

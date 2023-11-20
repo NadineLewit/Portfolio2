@@ -11,6 +11,8 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Typed from "react-typed";
 import Avatar from "@material-ui/core/Avatar";
+import { useProyectos } from "../MyContext";
+import tacho from "../images/trash.png"
 
 import project1 from "../images/html-css-javascript-lg.jpg";
 import project2 from "../images/html-css-javascript.jpg";
@@ -37,54 +39,17 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Portfolio = () => {
+const Favs = () => {
   const classes = useStyles();
-  const [favs, setFavs] = useState([])
+  const storedItems = JSON.parse(localStorage.getItem("favoritos")) || [];
+  const [favs, setFavs] = useState(storedItems)
 
   useEffect(() => {
-    const storedItems = JSON.parse(localStorage.getItem('favoritos')) || [];
-    setFavs(storedItems);
-  }, []);
+    localStorage.setItem("favoritos", JSON.stringify(favs));
+  }, [favs]);
 
 
   return (
-    // <Box component="div" className={classes.mainContainer}>
-    //   <Grid container justify="center">
-    //     {/* Projects */}
-    //     {console.log(favs)}
-    //     {favs.map((project, i) => (
-    //       <Grid item xs={12} sm={8} md={4} key={i}>
-    //         <Card className={classes.cardContainer}>
-    //           <CardActionArea>
-    //             <CardMedia
-    //               component="img"
-    //               alt="Project 1"
-    //               height="140"
-    //               image={project.image}
-    //             />
-    //             {console.log(project.name)}
-    //             <CardContent>
-    //               <Typography variant="h5" gutterBottom>
-    //                 {project.name}
-    //               </Typography>
-    //               <Typography variant="body2" color="textSecondary">
-    //                 {project.description}
-    //               </Typography>
-    //             </CardContent>
-    //           </CardActionArea>
-    //           <CardActions>
-    //             <Button size="small" color="primary">
-    //               Share
-    //             </Button>
-    //             <Button size="small" color="primary">
-    //               Live Demo
-    //             </Button>
-    //           </CardActions>
-    //         </Card>
-    //       </Grid>
-    //     ))}
-    //   </Grid>
-    // </Box>
     <Box component="div" className={classes.mainContainer}>
       <br></br>
       <br></br>
@@ -113,11 +78,8 @@ const Portfolio = () => {
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <Button size="small" color="primary">
-                  Share
-                </Button>
-                <Button size="small" color="primary">
-                  Live Demo
+                <Button size="small" color="primary" onClick={() => setFavs(favs.filter((item, index) => index !== i))}>
+                  <img src={tacho} style={{ width: '10%', marginRight: "-80%"}} className={classes.root}/>
                 </Button>
                 
               </CardActions>
@@ -129,4 +91,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default Favs;

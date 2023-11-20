@@ -20,6 +20,33 @@ import img77 from "../src/images/disneyImg.jpg";
 import img88 from "../src/images/banderasImg.jpg";
 import img99 from "../src/images/citasImg.jpg";
 
+import img111 from "../src/images/catalogoEj1.JPG";
+import img1111 from "../src/images/catalogoEj2.JPG";
+
+import img222 from "../src/images/hardwareImg.jpg";
+import img2222 from "../src/images/hardwareImg.jpg";
+
+import img333 from "../src/images/clinicaImg.jpg";
+import img3333 from "../src/images/clinicaImg.jpg";
+
+import img444 from "../src/images/comidaImg.jpg";
+import img4444 from "../src/images/comidaImg.jpg";
+
+import img555 from "../src/images/contextImg.jfif";
+import img5555 from "../src/images/contextImg.jfif";
+
+import img666 from "../src/images/personasImg.avif";
+import img6666 from "../src/images/personasImg.avif";
+
+import img777 from "../src/images/disneyImg.jpg";
+import img7777 from "../src/images/disneyImg.jpg";
+
+import img888 from "../src/images/banderasImg.jpg";
+import img8888 from "../src/images/banderasImg.jpg";
+
+import img999 from "../src/images/citasImg.jpg";
+import img9999 from "../src/images/citasImg.jpg";
+
 const MyContext = createContext();
 
 export function ContextProvider ({ children }) {
@@ -29,72 +56,99 @@ const projects = [
         id: 0,  
         name: "Catalogo de productos",
         description: `Un catalogo de productos variados hecho con React con diferentes funciones.`,
+        desc: "Un catalogo de productos variados, desde perfumes hasta productos tecnologicos, como smartphones o laptops. Esta programado con React y posee diferentes funciones, como buscar algun producto en especifico, filtrar por categorias o enterarte sobre mas datos del producto en cuestion.",
         image: img1,
         image2: img11,
+        image3: img111,
+        image4: img1111,
         url: "https://github.com/NadineLewit/TP_Productos.git",
     },
     {
         id: 1,
         name: "Trabajo de hardware",
         description: `Un trabajo centrado en 4 funcionalidades de hardware en React.`,
+        desc: "dasdsa",
         image: img2,
         image2: img22,
+        image3: img222,
+        image4: img2222,
         url: "https://github.com/NadineLewit/TP_Hardware.git",
     },
     {
         id: 2,  
         name: "Turnos de clinica",
         description: `Una pagina web completa y funcional basada en la facilitacion de la gestion de turnos y su administracion, tanto desde la perspectiva del paciente, como la del administrador.`,
+        desc: "asdasd",
         image: img3,
         image2: img33,
+        image3: img333,
+        image4: img3333,
         url: "https://github.com/JulianaPansowyFurno/PF.git",
     },
     {        
         id: 3,  
         name: "Catalogo de platos de comida",
         description: `Un catalogo de diferentes platos de comida con un respectivo menu en el que podras agregar y quitar los platos de tu preferencia.`,
+        desc: "asdsad",
         image: img4,
         image2: img44,
+        image3: img444,
+        image4: img4444,
         url: "https://github.com/JulianaPansowyFurno/TPComidas.git",
     },
     {        
         id: 4,  
         name: "Trabajo con Context State",
         description: `Una demostracion del uso de Context State llevado a la practica.`,
+        desc: "asdasd",
         image: img5,
         image2: img55,
+        image3: img555,
+        image4: img5555,
         url: "https://github.com/JulianaPansowyFurno/tp07_Context.git",
     },
     {        
         id: 5,
         name: "Directorio de personas",
         description: `Un listado de personas con ciertos datos suyos, realizado con React Router.`,
+        desc: "dsadsad",
         image: img6,
         image2: img66,
+        image3: img666,
+        image4: img6666,
         url: "https://github.com/JulianaPansowyFurno/TP07_Directorio_de_personas.git",
     },
     {
         id: 6,  
         name: "Peliculas de disney",
         description: `Una API que explora el mundo de Disney, la cual permite conocer y modificar los personajes que lo componen y entender en qué películas estos participaron.`,
+        desc: "asdsad",
         image: img7,
         image2: img77,
+        image3: img777,
+        image4: img7777,
         url: "https://github.com/JulianaPansowyFurno/TPPeliculas.git",
     },
     {
         id: 7,
         name: "Banderas del mundo",
         description: `Utilizando una API de banderas, este trabajo te da el desafio de adivinar la que te muestra, cada vez que adivine, suma 10 puntos y cada vez que no adivine, reste 1 punto.`,
+        desc: "dadsdsa",
         image: img8,
         image2: img88,
+        image3: img888,
+        image4: img8888,
         url: "https://github.com/JulianaPansowyFurno/TP6_Banderas.git",
     },
     {
         id: 8,  
         name: "Gestor de citas",
         description: `Este trabajo simula la accion de sacarle un turno a tu mascota a traves de una pagina web.`,
+        desc: "dasdsa",
         image: img9,
         image2: img99,
+        image3: img999,
+        image4: img9999,
         url: "https://github.com/JulianaPansowyFurno/TP4_GestordeCitas.git",
     },
   ]

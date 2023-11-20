@@ -8,6 +8,7 @@ import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import Detalle from "./components/Detalle";
 import Footer from "./components/Footer";
+import Info from "./components/Info"
 import "./App.css";
 import {ContextProvider} from "./MyContext";
 
@@ -21,6 +22,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/favs" component={Favs} />
+        <Route exact path="/info" component={Info} />
         <Route exact path="/portfolio" component={Portfolio} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/detalle/:id" component={Detalle} />
