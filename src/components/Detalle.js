@@ -64,12 +64,18 @@ const useStyles = makeStyles((theme) => ({
     width: "40%",
     marginTop: "3%"
   },
-  imgEj: {
+  imgEjHori: {
     marginBottom: "4%",
     textAlign: "center",
     alignContent: "center",
     width: "40%",
-    
+  },
+  imgEjVert: {
+    marginBottom: "4%",
+    textAlign: "center",
+    alignContent: "center",
+    width: "20%",
+    marginLeft: "1%"
   },
   button: {
     color: "tan",
@@ -123,8 +129,18 @@ const Detalle = () => {
           <Typography variant="h5" className={classes.heading}>
               Fotos del proyecto
           </Typography>
-          <img className={classes.imgEj} src={proyecto.image3}></img>
-          <img className={classes.imgEj} src={proyecto.image4}></img>
+          {proyecto.id === 1 ? (
+              <>
+                <img className={classes.imgEjVert} src={proyecto.image3}/>
+                <img className={classes.imgEjVert} src={proyecto.image4}/>
+              </>
+            ) : (
+              <>
+                <img className={classes.imgEjHori} src={proyecto.image3}/>
+                <img className={classes.imgEjHori} src={proyecto.image4}/>
+              </>
+            )}
+          
           <Box component="div" className={classes.contactContainer}>
       <Grid container justify="center">
         <Box component="form">

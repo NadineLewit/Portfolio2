@@ -23,11 +23,11 @@ import img99 from "../src/images/citasImg.jpg";
 import img111 from "../src/images/catalogoEj1.JPG";
 import img1111 from "../src/images/catalogoEj2.JPG";
 
-import img222 from "../src/images/hardwareImg.jpg";
-import img2222 from "../src/images/hardwareImg.jpg";
+import img222 from "../src/images/hardwareEj1.PNG";
+import img2222 from "../src/images/hardwareEj2.PNG";
 
-import img333 from "../src/images/clinicaImg.jpg";
-import img3333 from "../src/images/clinicaImg.jpg";
+import img333 from "../src/images/clinicaEj1.PNG";
+import img3333 from "../src/images/clinicaEj2.PNG";
 
 import img444 from "../src/images/comidaImg.jpg";
 import img4444 from "../src/images/comidaImg.jpg";
@@ -67,7 +67,7 @@ const projects = [
         id: 1,
         name: "Trabajo de hardware",
         description: `Un trabajo centrado en 4 funcionalidades de hardware en React.`,
-        desc: "dasdsa",
+        desc: "En este proyecto, se creo una aplicacion movil con diferentes funcionalidades, como acceder a tus contactos y sus numeros, ver la temperatura, la hora y tu ubicacion actual, realizar un llamado de emergencia a un numero que vos eligas con tan solo agitar el celular. Tambien presenta la posibilidad de mostrar un QR, que cuando un tercero lo escanee, le muestre los nombres de quienes crearon el proyecto. En este mismo espacio, tambien tendras la posibilidad de vos mismo escanear QRs de otros, mediante una camara que capta estos codigos.",
         image: img2,
         image2: img22,
         image3: img222,
@@ -78,7 +78,7 @@ const projects = [
         id: 2,  
         name: "Turnos de clinica",
         description: `Una pagina web completa y funcional basada en la facilitacion de la gestion de turnos y su administracion, tanto desde la perspectiva del paciente, como la del administrador.`,
-        desc: "asdasd",
+        desc: "Este proyecto presenta una pagina web completa y funcional basada en la facilitacion de la gestion de turnos y su administracion, tanto desde la perspectiva del paciente, como la del administrador. Esta preparada para trabajar con una clinica que tenga cierta desorganizacion en el sentido de el manejo de sus turnos, ya que mediante este proyecto, un paciente podra sacar turnos desde la comodidad de su casa, seleccionando todas sus preferencias y luego verlo en su agenda virtual, con la posibilidad de cancelarlo o posponerlo. Por el lado de los administradores, estos tendran acceso a todos los turnos, con la posibilidad de filtrar por medico, paciente, etc. A su vez, en caso de que un medico/a nuevo/a comience a trabajar para dicha clinica, tambien podra agregarlo a la base de datos, sin la necesidad de hardcodear su informacion.",
         image: img3,
         image2: img33,
         image3: img333,
