@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     color: "tomato",
+    marginBottom: "1%"
   },
   titleCustom: {
     marginLeft: "7%",

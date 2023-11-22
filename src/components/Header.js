@@ -14,6 +14,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { useProyectos } from "../MyContext";
+import cor from "../images/corazon.png";
+import corR from "../images/corazonRojo.png";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -66,6 +68,11 @@ const Header = () => {
   const [favs, setFavs] = useState(storedItems)
   const { projects } = useProyectos();
 
+  useEffect(() => {
+    localStorage.setItem("favoritos", JSON.stringify(favs));
+    {console.log(favs)}
+  }, [favs]);
+
   return (
     <>
     <Box className={classes.typedContainer}>
@@ -99,8 +106,8 @@ const Header = () => {
     
       {projects.map((project, i) => (
         i < 6 && (
-        <Grid item xs={12} sm={8} md={4} key={i}>
-          <Card className={classes.cardContainer}>
+          <Grid item xs={12} sm={8} md={4} key={i}>
+          <Card className={classes.cardContainer} >
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -118,34 +125,33 @@ const Header = () => {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="small" color="primary">
-              <Link to={`/detalle/${i}`}>
-                Mas detalle
-              </Link>
+              <Button style={{width: "100%"}} color="secondary">
+                <Link to={`/detalle/${i}`} style={{ textDecoration: 'none' }}>Mas informacion...</Link>
               </Button>
-              <Button size="small" color="primary">
-                Live Demo
-              </Button>
-              <Button size="small" color="primary" style={{ marginLeft: 'auto' }} onClick={() => {
-                  if (!favs.some(unFav => unFav.url === project.url)) {
-                    setFavs([...favs, project]);
-                    localStorage.setItem('favoritos', JSON.stringify([...favs, project]));
+              <Button
+                size="small"
+                color="primary"
+                style={{ marginLeft: "auto" }}
+                onClick={() => {
+                  if (favs.some((unFav) => unFav.url === project.url)) {
+                    setFavs(
+                      favs.filter((item) => item.url !== project.url)
+                    );
                   } else {
-                    alert('Ya agregaste este proyecto a favoritos');
+                    setFavs([...favs, project]);
                   }
-                }}>
-                Favs
-                <img  className={classes.root}>
-                  
-                </img>
+                }}
+              >
+                {favs.some((unFav) => unFav.url === project.url) ? (
+                  <img src={corR} style={{ width: "15%", marginRight: "-70%" }} className={classes.root} />
+                ) : (
+                  <img
+                    src={cor}
+                    style={{ width: "15%", marginRight: "-70%" }}
+                    className={classes.root}
+                  />
+                )}
               </Button>
-              <Button size="small" color="primary" style={{ marginLeft: 'auto' }} onClick={() => setFavs(favs.filter(unFav => unFav !== unFav))}>
-                sacar favs
-                <img  className={classes.root}>
-                  
-                </img>
-              </Button>
-              
             </CardActions>
           </Card>
         </Grid>
