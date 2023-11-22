@@ -29,8 +29,8 @@ import img2222 from "../src/images/hardwareEj2.PNG";
 import img333 from "../src/images/clinicaEj1.PNG";
 import img3333 from "../src/images/clinicaEj2.PNG";
 
-import img444 from "../src/images/comidaImg.jpg";
-import img4444 from "../src/images/comidaImg.jpg";
+import img444 from "../src/images/comidaEj1.PNG";
+import img4444 from "../src/images/comidaEj2.PNG";
 
 import img555 from "../src/images/contextImg.jfif";
 import img5555 from "../src/images/contextImg.jfif";
@@ -100,7 +100,7 @@ const projects = [
         id: 4,  
         name: "Trabajo con Context State",
         description: `Una demostracion del uso de Context State llevado a la practica.`,
-        desc: "asdasd",
+        desc: "Una demostracion del uso de Context State llevado a la practica. Todavia sigue en proceso, por eso no puedo proporcionar imagenes.",
         image: img5,
         image2: img55,
         image3: img555,
@@ -111,7 +111,7 @@ const projects = [
         id: 5,
         name: "Directorio de personas",
         description: `Un listado de personas con ciertos datos suyos, realizado con React Router.`,
-        desc: "dsadsad",
+        desc: "Un listado de personas con ciertos datos suyos, realizado con React Router.",
         image: img6,
         image2: img66,
         image3: img666,

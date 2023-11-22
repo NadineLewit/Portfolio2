@@ -11,6 +11,7 @@ import "../clases.css"
 import Button from "@material-ui/core/Button";
 import Send from "@material-ui/icons/Send";
 import Githubb from "../images/aa.png"
+import Proceso from "../images/enProceso.png"
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -64,18 +65,38 @@ const useStyles = makeStyles((theme) => ({
     width: "40%",
     marginTop: "3%"
   },
-  imgEjHori: {
+  imgEjHori1: {
     marginBottom: "4%",
     textAlign: "center",
     alignContent: "center",
     width: "40%",
+
   },
-  imgEjVert: {
+  imgEjHori2: {
+    marginBottom: "4%",
+    textAlign: "center",
+    alignContent: "center",
+    width: "40%",
+    marginLeft: "1%"
+  },
+  imgEjVert1: {
+    marginBottom: "4%",
+    textAlign: "center",
+    alignContent: "center",
+    width: "20%",
+  },
+  imgEjVert2: {
     marginBottom: "4%",
     textAlign: "center",
     alignContent: "center",
     width: "20%",
     marginLeft: "1%"
+  },
+  imgEjProceso: {
+    marginBottom: "4%",
+    textAlign: "center",
+    alignContent: "center",
+    width: "40%",
   },
   button: {
     color: "tan",
@@ -131,15 +152,20 @@ const Detalle = () => {
           </Typography>
           {proyecto.id === 1 ? (
               <>
-                <img className={classes.imgEjVert} src={proyecto.image3}/>
-                <img className={classes.imgEjVert} src={proyecto.image4}/>
+                <img className={classes.imgEjVert1} src={proyecto.image3}/>
+                <img className={classes.imgEjVert2} src={proyecto.image4}/>
               </>
             ) : (
-              <>
-                <img className={classes.imgEjHori} src={proyecto.image3}/>
-                <img className={classes.imgEjHori} src={proyecto.image4}/>
-              </>
-            )}
+              proyecto.id === 4 ? (
+                <img className={classes.imgEjProceso} src={Proceso}/>
+              ) : (
+                <>
+                  <img className={classes.imgEjHori1} src={proyecto.image3}/>
+                  <img className={classes.imgEjHori2} src={proyecto.image4}/>
+                </>
+              )
+            )} 
+            
           
           <Box component="div" className={classes.contactContainer}>
       <Grid container justify="center">
