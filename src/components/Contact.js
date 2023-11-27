@@ -1,4 +1,4 @@
-import React, {Component, useEffect} from "react";
+import React from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
@@ -7,7 +7,6 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
 import Send from "@material-ui/icons/Send";
-import emailjs from 'emailjs-com';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -85,7 +84,7 @@ const Contact = () => {
     };
 
     const handleInputChange = (event) => {
-      // Handle form input changes here if needed
+      // aa
     };
 
 

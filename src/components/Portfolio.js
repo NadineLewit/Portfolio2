@@ -51,7 +51,6 @@ const Portfolio = () => {
 
   useEffect(() => {
     localStorage.setItem("favoritos", JSON.stringify(favs));
-    {console.log(favs)}
   }, [favs]);
 
   return (

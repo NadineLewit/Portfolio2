@@ -9,8 +9,6 @@ import { useParams } from "react-router-dom";
 import { useProyectos } from "../MyContext";
 import "../clases.css"
 import Button from "@material-ui/core/Button";
-import Send from "@material-ui/icons/Send";
-import Githubb from "../images/aa.png"
 import avatar from "../images/fotoMia2.jpg";
 import ortImg from "../images/ort.png";
 import lenguajes from "../images/leng.png";
@@ -62,7 +60,6 @@ const useStyles = makeStyles((theme) => ({
     heigth: "100%",
   },
   descContainer: {
-    //  padding: theme.spacing(20),
      width: "40%",
      marginLeft: "-25%",
      marginTop: "10%",

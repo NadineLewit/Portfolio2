@@ -12,7 +12,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
-import ArrowBack from "@material-ui/icons/ArrowBack";
 import Home from "@material-ui/icons/Home";
 import Apps from "@material-ui/icons/Apps";
 import ContactMail from "@material-ui/icons/ContactMail";
@@ -41,8 +40,6 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     display: "block",
     margin: "0.5rem auto",
-    // width: theme.spacing(13),
-    // height: theme.spacing(13),
   },
   listItem: {
     color: "tan",
@@ -80,7 +77,6 @@ const Navbar = () => {
     setOpen(true);
   };
 
-  // Cuando cierras el menú lateral
   const handleClose = () => {
     document.getElementsByTagName('html')[0].style.overflow = 'auto';
     setOpen(false);
